@@ -6,8 +6,6 @@ const dbname ='mongodb+srv://harsh_jaiswal:hjjfootball@cluster0.d20nv.mongodb.ne
 
 mongoose.connect(dbname, {useNewUrlParser: true, useUnifiedTopology: true }).then((res) => {
 		console.log("Database is connected");
-}).catch(()=>{
-	console.log("ERROR");
 });
 server.use(express.static('public'));
 server.listen(3000,function(){

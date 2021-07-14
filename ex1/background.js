@@ -13,8 +13,13 @@ const options={
 	body: JSON.stringify(data)
 };
 
+// chrome.runtime.onMessage.addListener(function(request, sender){
+// 		console.log(request);
+// });
+
 fetch('http://localhost:3000/products', options).then(res=>{
 	return res.json();
 }).then((res1)=>{
 	console.log(res1);
 });
+

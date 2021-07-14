@@ -2,6 +2,9 @@
 	"name": "amazon price drop",
 	"version": "1.0",
 	"manifest_version": 2,
+  "permissions": [
+    "activeTab", "tabs"
+  ],
 	"content_scripts": [
 		{
 			"matches": ["<all_urls>"],
