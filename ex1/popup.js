@@ -10,10 +10,15 @@ function($stateProvider, $urlRouterProvider) {
       url: '/login',
       templateUrl: '/login.html',
       controller: 'logger'
-    });
+    })
+    .state('signup', {
+      url: '/signup',
+      templateUrl: '/signup.html',
+      controller: 'logger'
+    })
 
   $urlRouterProvider.otherwise('login');
-}])
+}]);
 var ID;
 var Password;
 var userdata={
@@ -21,7 +26,7 @@ var userdata={
 	Password
 }
 
-app.controller('logger', ['$scope', function($scope) {
+app.controller('logger', ['$scope', '$state', function($scope, $state) {
     $scope.username = 'harsh';
     $scope.password = 'password';
 
@@ -30,16 +35,18 @@ app.controller('logger', ['$scope', function($scope) {
         userdata.ID=usernam;
         userdata.Password=passwor;
         console.log(userdata);
-
-    chrome.tabs.query({currentWindow: true, active: true},
-      function (tabs){
-        chrome.tabs.sendMessage(tabs[0].id,'hi')  
-      })
-
     };
+
+    $scope.changestate=function(){
+      $state.go('signup');
+    };
+
 }]);
 
-
+    // chrome.tabs.query({currentWindow: true, active: true},
+    //   function (tabs){
+    //     chrome.tabs.sendMessage(tabs[0].id,'hi')  
+    //   })
 // app.controller('DoubleController', ['$scope', function($scope) {
 //   $scope.double = function(value) { return value * 2; };
 // }]);

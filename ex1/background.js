@@ -14,7 +14,7 @@ const options={
 };
 
 // chrome.runtime.onMessage.addListener(function(request, sender){
-// 		console.log(request);
+// 		console.log("yes");
 // });
 
 fetch('http://localhost:3000/products', options).then(res=>{
